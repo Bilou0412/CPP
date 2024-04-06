@@ -2,10 +2,29 @@
 #include "Contact.class.hpp"
 
 
-void    PhoneBook::add(std::string FirstName, std::string LastName, std::string NickName, std::string PhoneNumber, std::string DarkestSecret)
+PhoneBook::PhoneBook(void)
 {
-    Contact contact(FirstName, );
-    this->Contact_list[this->index] = contact;
+    this->index = 0;
+}
+
+void    PhoneBook::add(void)
+{
+    if (this->index > 8)
+        this->index = 0;
+
+    std::string PhoneNb;
+    std::cout << "Phone Number" << std::endl;
+    std::cin >> PhoneNb;
+    this->Contact_list[this->index].SetPhoneNumber(PhoneNb);
+
+    std::string FirstName;
+    std::cout << "First Name" << std::endl;
+    std::cin >> FirstName;
+    this->Contact_list[this->index].SetFirstName(FirstName);
+
+    
+
+    this->index++;
 }
 
 void    PhoneBook::search()
