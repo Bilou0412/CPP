@@ -52,12 +52,14 @@ void    PhoneBook::search()
         std::cout<<DisplayInfo(i)<<std::endl;
         std::cout<<"‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾"<<std::endl;
     }
-    while()
+    while((index.size() != 1 || index[0] < '0' || index[0] > '7'))
     {
         std::cout << "Index contact : ";
         std::getline(std::cin,index);
+        if (std::cin.eof())
+            return ;
         if(index.size() != 1 || (index[0] < '0' || index[0] > '7'))
-            std::cout << "Please Enter Number between 0 and 7 inclusive";
+            std::cout << "Please Enter Number between 0 and 7 inclusive" <<std::endl;
     }
     std::cout<<"_____________________________________________"<<std::endl;
     std::cout<<DisplayInfo(index[0] - '0')<<std::endl;
