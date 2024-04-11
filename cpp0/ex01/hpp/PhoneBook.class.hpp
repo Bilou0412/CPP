@@ -9,7 +9,9 @@ public:
     ~PhoneBook(void);    
     void add(void);
     void search(void);
+    
 private:
+    std::string DisplayInfo(int i);
     Contact Contact_list[8];
     int index;
 };

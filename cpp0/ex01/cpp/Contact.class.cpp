@@ -4,7 +4,7 @@ Contact::Contact(){}
 
 Contact::~Contact(){}
 
-void Contact::SetFirstName(std::string FirsName)
+void Contact::SetFirstName(std::string FirstName)
 {
    this->FirstName =  FirstName;
 }
