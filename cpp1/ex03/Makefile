@@ -1,11 +1,10 @@
-NAME   	=	Reference_et_Pointeur
+NAME   	=	Violence_inutile
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 
 SRC	=	main.cpp \
-		cpp/HumanA.class.cpp
-		cpp/HumanB.class.cpp
-		cpp/Weapon.class.cpp
+		cpp/Human.class.cpp \
+		cpp/Weapon.class.cpp \
 
 OBJ	=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
