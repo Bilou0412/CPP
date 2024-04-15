@@ -17,6 +17,7 @@ int main(void)
    
    randomChump("Gil");
 
-   delete[] cocoHorde;
    delete pierreZombie;
+   delete[] cocoHorde;
+   return (0);
 }
