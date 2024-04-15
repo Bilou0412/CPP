@@ -6,14 +6,17 @@
 #include<iomanip>
 
 class Zombie{
-    public:        
+    public:
         Zombie(void);
         ~Zombie(void);
         Zombie(std::string name);
-        void setName(std::string name);
         void annonce(void);
     private:
         std::string _name;
 };
+
+void randomChump( std::string name );
+Zombie* newZombie( std::string name );
+Zombie* zombieHorde( int N, std::string name );
 
 #endif
