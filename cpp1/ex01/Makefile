@@ -11,14 +11,14 @@ SRC	=	cpp/Zombie.class.cpp \
 OBJ	=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
 RM	=	rm -rf
-CC	=	g++
+CXX	=	c++
 FLAGS	=	-I./hpp -Wall -Wextra -Werror -std=c++98
 
 $(NAME):	$(OBJ)
-	$(CC) $(FLAGS) $^ -o $@
+	$(CXX) $(FLAGS) $^ -o $@
 
 $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.cpp | $(OBJ_DIR)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CXX) $(FLAGS) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)

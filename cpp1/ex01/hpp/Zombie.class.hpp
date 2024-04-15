@@ -6,10 +6,10 @@
 #include<iomanip>
 
 class Zombie{
-    public:
-        Zombie(std::string name);
+    public:        
         Zombie(void);
         ~Zombie(void);
+        Zombie(std::string name);
         void setName(std::string name);
         void annonce(void);
     private:

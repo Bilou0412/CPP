@@ -1,6 +1,14 @@
 #include "Zombie.class.hpp"
 
-Zombie::Zombie(std::string name): _name(name) {}
+Zombie::Zombie(void):_name("No Name") 
+{
+    std::cout << "Zombie "<< this->_name << " was born" << std::endl;
+}
+
+Zombie::Zombie(std::string name): _name(name) 
+{
+    std::cout << "Zombie "<< this->_name << " was born" << std::endl;
+}
 
 Zombie::~Zombie(void)
 {

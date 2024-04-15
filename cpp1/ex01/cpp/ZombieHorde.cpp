@@ -1,7 +1,9 @@
-#include "Zombie.class.hpp"
+#include "../hpp/Zombie.class.hpp"
 
 Zombie* zombieHorde(int N, std::string name )
 {
     Zombie *horde = new Zombie[N];
-    for()
+    for(int i = 0 ; i < N; i++)
+        horde[i] = Zombie(name);
+    return (horde);
 }
