@@ -1,12 +1,8 @@
-NAME   	=	HordeZombie
+NAME   	=	Reference_et_Pointeur
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 
-SRC	=	cpp/Zombie.class.cpp \
-        cpp/randomChump.cpp \
-		cpp/newZombie.cpp \
-		cpp/ZombieHorde.cpp	\
-		main.cpp \
+SRC	=	main.cpp \
 
 OBJ	=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
