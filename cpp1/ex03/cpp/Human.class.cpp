@@ -1,13 +1,13 @@
 #include "HumanA.class.hpp"
 #include "HumanB.class.hpp"
 
-HumanA::HumanA(Weapon weapon): weapon(weapon){}
+HumanA::HumanA(const std::string name , Weapon weapon): _name(name), weapon(weapon){}
 
 HumanA::~HumanA(void)
 {
     std::cout <<this->_name << "is dead" << std::endl; 
 }
-HumanB::HumanB(void){}
+HumanB::HumanB(const std::string name): _name(name){}
 
 HumanB::~HumanB(void)
 {
@@ -22,5 +22,16 @@ void HumanA::attack(void)
 {
     std::cout << this->_name << " attacks with their " << this->weapon.getType() << std::endl;
 }
+
+void HumanA::setWeapon(Weapon *weapon) 
+{
+    this->weapon = weapon;
+}
+
+void HumanB::setWeapon(Weapon weapon) 
+{
+    this->weapon = weapon;
+}
+
 
 
