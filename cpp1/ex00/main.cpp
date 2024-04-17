@@ -11,7 +11,7 @@ int main(void)
    Zombie *pierreZombie;
    pierreZombie = newZombie("Pierre");
    pierreZombie->annonce();
-   
+
    randomChump("Gil");
 
    delete pierreZombie;
