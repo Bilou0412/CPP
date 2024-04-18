@@ -3,6 +3,7 @@ SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 
 SRC	=	cpp/main.cpp \
+			cpp/Harl.class.cpp \
 
 OBJ	=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
