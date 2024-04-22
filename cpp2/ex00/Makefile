@@ -1,8 +1,9 @@
-NAME   	=	Harl
+NAME   	=	canon
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 
 SRC	=	cpp/main.cpp \
+			cpp/Fixed.class.cpp \
 
 OBJ	=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
