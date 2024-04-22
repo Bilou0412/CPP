@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 
 class Fixed
 {
@@ -14,15 +15,15 @@ public:
   Fixed(const float &convertFixed);
   ~Fixed(void);
   Fixed &operator=(const Fixed &f);
-  friend std::ostream &operator<<(std::ostream &os,const Fixed &f);
+  friend std::ostream &operator<<(std::ostream &os, const Fixed &f);
   int getRawBits(void) const;
-  void setRawBits(int const raw);
+  void setRawBits(int const &raw);
   float toFloat(void) const;
   int toInt(void) const;
 
 private:
   int _nbFixedVal;
-  const int _nbBitsFrac;
+  static const int _nbBitsFrac = 8;
 };
 
 #endif

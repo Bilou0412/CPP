@@ -1,24 +1,24 @@
 #include "../hpp/Fixed.class.hpp"
 
-Fixed::Fixed(void) : _nbFixedVal(0), _nbBitsFrac(8)
+Fixed::Fixed(void) : _nbFixedVal(0)
 {
   std::cout << "Default constructor called" << std::endl;
 }
-Fixed::Fixed(const Fixed &f) : _nbBitsFrac(8)
+Fixed::Fixed(const Fixed &f)
 {
   std::cout << "Copy constructor called" << std::endl;
   *this = f;
 }
 
-Fixed::Fixed(const int &convertFixed) : _nbBitsFrac(8)
+Fixed::Fixed(const int &convertFixed)
 {
   std::cout << "Int constructor called" << std::endl;
   this->_nbFixedVal = convertFixed << _nbBitsFrac;
 }
-Fixed::Fixed(const float &convertFixed) : _nbBitsFrac(8)
+Fixed::Fixed(const float &convertFixed)
 {
   std::cout << "Float constructor called" << std::endl;
-  this->_nbFixedVal = static_cast<int>(convertFixed) << _nbBitsFrac;
+  this->_nbFixedVal = roundf(convertFixed * (1 << _nbBitsFrac));
 }
 Fixed &Fixed::operator=(const Fixed &f)
 {
@@ -28,9 +28,9 @@ Fixed &Fixed::operator=(const Fixed &f)
   return (*this);
 }
 
-std::ostream& operator<<(std::ostream &os, const Fixed &f)
+std::ostream &operator<<(std::ostream &os, const Fixed &f)
 {
-  os << f._nbFixedVal;
+  os << f.toFloat();
   return os;
 }
 
@@ -45,15 +45,15 @@ int Fixed::getRawBits(void) const
   return (this->_nbFixedVal);
 }
 
-void Fixed::setRawBits(int const raw)
+void Fixed::setRawBits(int const &raw)
 {
   this->_nbFixedVal = raw;
 }
 
 float Fixed::toFloat(void) const
 {
-  int raw = this->_nbFixedVal >> this->_nbBitsFrac;
-  return (static_cast<float>(raw));
+  float raw = (float)this->_nbFixedVal / (1 << this->_nbBitsFrac);
+  return ((float)(raw));
 }
 
 int Fixed::toInt(void) const
