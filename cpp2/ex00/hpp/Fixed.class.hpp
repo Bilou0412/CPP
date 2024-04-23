@@ -17,7 +17,7 @@ public:
 
 private:
   int _nbFixedVal;
-  const int _nbBitsFrac;
+  static const int _nbBitsFrac = 8;
 };
 
 #endif

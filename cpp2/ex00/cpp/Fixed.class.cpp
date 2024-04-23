@@ -1,10 +1,10 @@
 #include "Fixed.class.hpp"
 
-Fixed::Fixed(void) : _nbFixedVal(0), _nbBitsFrac(8)
+Fixed::Fixed(void) : _nbFixedVal(0)
 {
   std::cout << "Default constructor called" << std::endl;
 }
-Fixed::Fixed(const Fixed &f) : _nbBitsFrac(f._nbBitsFrac)
+Fixed::Fixed(const Fixed &f)
 {
   std::cout << "Copy constructor called" << std::endl;
   this->_nbFixedVal = f.getRawBits();
