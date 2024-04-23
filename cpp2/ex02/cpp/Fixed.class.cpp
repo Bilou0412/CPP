@@ -65,63 +65,89 @@ bool Fixed::operator<(const Fixed &f) const
 {
   return (this->_nbFixedVal < f._nbFixedVal);
 }
+
 bool Fixed::operator>(const Fixed &f) const
 {
   return (this->_nbFixedVal > f._nbFixedVal);
 }
+
 bool Fixed::operator<=(const Fixed &f) const
 {
   return (this->_nbFixedVal <= f._nbFixedVal);
 }
+
 bool Fixed::operator>=(const Fixed &f) const
 {
   return (this->_nbFixedVal >= f._nbFixedVal);
 }
+
 bool Fixed::operator==(const Fixed &f) const
 {
   return (this->_nbFixedVal == f._nbFixedVal);
 }
+
 bool Fixed::operator!=(const Fixed &f) const
 {
   return (this->_nbFixedVal != f._nbFixedVal);
 }
+
 Fixed Fixed::operator-(const Fixed &f) const
 {
-  Fixed ret(this->_nbFixedVal - f._nbFixedVal);
+  Fixed ret;
+  ret._nbFixedVal = this->_nbFixedVal - f._nbFixedVal;
   return (ret);
 }
+
 Fixed Fixed::operator*(const Fixed &f) const
 {
-  Fixed ret(this->_nbFixedVal * f._nbFixedVal);
+  Fixed ret;
+  ret._nbFixedVal = this->_nbFixedVal * f._nbFixedVal;
+  ret._nbFixedVal /= 256;
   return (ret);
 }
+
 Fixed Fixed::operator/(const Fixed &f) const
 {
-  Fixed ret(this->_nbFixedVal / f._nbFixedVal);
+  Fixed ret;
+  ret._nbFixedVal = this->_nbFixedVal / f._nbFixedVal;
   return (ret);
 }
+
 Fixed Fixed::operator+(const Fixed &f) const
 {
-  Fixed ret(this->_nbFixedVal + f._nbFixedVal);
+  Fixed ret;
+  ret._nbFixedVal = this->_nbFixedVal + f._nbFixedVal;
   return (ret);
 }
+
 Fixed Fixed::operator++()
 {
-  Fixed ret(this->_nbFixedVal++);
+  Fixed ret;
+  (this->_nbFixedVal)++;
+  ret._nbFixedVal = this->_nbFixedVal;
   return (ret);
 }
+
 Fixed Fixed::operator--()
 {
-  Fixed ret(this->_nbFixedVal--);
+  Fixed ret;
+  (this->_nbFixedVal)--;
+  ret._nbFixedVal = this->_nbFixedVal;
   return (ret);
 }
+
 Fixed Fixed::operator++(int)
 {
-  Fixed ret(++(this->_nbFixedVal));
+  Fixed ret;
+  ret._nbFixedVal = this->_nbFixedVal;
+  ++(this->_nbFixedVal);
   return (ret);
 }
+
 Fixed Fixed::operator--(int)
 {
-  Fixed ret(--(this->_nbFixedVal));
+  Fixed ret;
+  ret._nbFixedVal = this->_nbFixedVal;
+  --(this->_nbFixedVal);
   return (ret);
 }
