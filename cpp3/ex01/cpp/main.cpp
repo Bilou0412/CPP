@@ -1,14 +1,14 @@
-#include "ClapTrap.class.hpp"
+#include "ScavTrap.class.hpp"
 
 int main()
 {
-  ClapTrap clapTrap("kefir");
+    ScavTrap scavTrap("Michel");
 
-  std::cout << clapTrap.getName() << " has " << clapTrap.getHitPoint() << " hp" << std::endl;
-  clapTrap.attack("bilel");
-  clapTrap.takeDamage(10);
-  clapTrap.attack("bilel");
-  std::cout << clapTrap.getName() << " has " << clapTrap.getHitPoint() << " hp" << std::endl;
-  clapTrap.beRepaired(2);
-  std::cout << clapTrap.getName() << " has " << clapTrap.getHitPoint() << " hp" << std::endl;
+    std::cout << scavTrap.getName() << " has " << scavTrap.getHitPoint() << "hp" << std::endl;
+    scavTrap.attack("J-J");
+    scavTrap.takeDamage(20);
+    std::cout << scavTrap.getName() << " has " << scavTrap.getHitPoint() << "hp" << std::endl;
+    scavTrap.beRepaired(10);
+    std::cout << scavTrap.getName() << " has " << scavTrap.getHitPoint() << "hp" << std::endl;
+    scavTrap.guardGate();
 }

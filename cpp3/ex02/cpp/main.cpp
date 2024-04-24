@@ -1,14 +1,15 @@
-#include "ClapTrap.class.hpp"
+#include "FragTrap.class.hpp"
 
 int main()
 {
-  ClapTrap clapTrap("kefir");
+  std::cout << "---------------------------------------------------" << std::endl;
+  FragTrap fragTrap("Michel");
 
-  std::cout << clapTrap.getName() << " has " << clapTrap.getHitPoint() << " hp" << std::endl;
-  clapTrap.attack("bilel");
-  clapTrap.takeDamage(10);
-  clapTrap.attack("bilel");
-  std::cout << clapTrap.getName() << " has " << clapTrap.getHitPoint() << " hp" << std::endl;
-  clapTrap.beRepaired(2);
-  std::cout << clapTrap.getName() << " has " << clapTrap.getHitPoint() << " hp" << std::endl;
+  std::cout << fragTrap.getName() << " has " << fragTrap.getHitPoint() << "hp" << std::endl;
+  fragTrap.attack("J-J");
+  fragTrap.takeDamage(20);
+  std::cout << fragTrap.getName() << " has " << fragTrap.getHitPoint() << "hp" << std::endl;
+  fragTrap.beRepaired(10);
+  std::cout << fragTrap.getName() << " has " << fragTrap.getHitPoint() << "hp" << std::endl;
+  fragTrap.highFivesGuys();
 }
