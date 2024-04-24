@@ -1,4 +1,4 @@
-NAME   	=	ClapTrap
+NAME   	=	ScavTrap
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 
