@@ -15,7 +15,6 @@ public:
   Fixed(const float &convertFixed);
   ~Fixed(void);
   Fixed &operator=(const Fixed &f);
-  friend std::ostream &operator<<(std::ostream &os, const Fixed &f);
   int getRawBits(void) const;
   void setRawBits(int const &raw);
   float toFloat(void) const;
@@ -25,5 +24,5 @@ private:
   int _nbFixedVal;
   static const int _nbBitsFrac = 8;
 };
-
+std::ostream &operator<<(std::ostream &os, const Fixed &f);
 #endif
