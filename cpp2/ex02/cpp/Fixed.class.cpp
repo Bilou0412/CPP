@@ -94,15 +94,14 @@ Fixed Fixed::operator-(const Fixed &f) const
 Fixed Fixed::operator*(const Fixed &f) const
 {
   Fixed ret;
-  ret._nbFixedVal = this->_nbFixedVal * f._nbFixedVal;
-  ret._nbFixedVal /= 256;
+  ret._nbFixedVal = this->_nbFixedVal * f.toFloat();
   return (ret);
 }
 
 Fixed Fixed::operator/(const Fixed &f) const
 {
   Fixed ret;
-  ret._nbFixedVal = this->_nbFixedVal / f._nbFixedVal;
+  ret._nbFixedVal = this->_nbFixedVal / f.toFloat();
   return (ret);
 }
 
