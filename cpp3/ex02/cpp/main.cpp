@@ -1,18 +1,14 @@
-#include "Fixed.class.hpp"
+#include "ClapTrap.class.hpp"
 
-#include <iostream>
-#include <iostream>
-
-int main(void)
+int main()
 {
-  Fixed a;
-  Fixed const b(Fixed(5.05f) * Fixed(2));
-  std::cout << a << std::endl;
-  std::cout << ++a << std::endl;
-  std::cout << a << std::endl;
-  std::cout << a++ << std::endl;
-  std::cout << a << std::endl;
-  std::cout << b << std::endl;
-  std::cout << Fixed::max(a, b) << std::endl;
-  return 0;
+  ClapTrap clapTrap("kefir");
+
+  std::cout << clapTrap.getName() << " has " << clapTrap.getHitPoint() << " hp" << std::endl;
+  clapTrap.attack("bilel");
+  clapTrap.takeDamage(10);
+  clapTrap.attack("bilel");
+  std::cout << clapTrap.getName() << " has " << clapTrap.getHitPoint() << " hp" << std::endl;
+  clapTrap.beRepaired(2);
+  std::cout << clapTrap.getName() << " has " << clapTrap.getHitPoint() << " hp" << std::endl;
 }

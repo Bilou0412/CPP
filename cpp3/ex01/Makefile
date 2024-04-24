@@ -4,6 +4,7 @@ OBJ_DIR	=	obj
 
 SRC	=	cpp/main.cpp \
 			cpp/ClapTrap.class.cpp \
+			cpp/ScavTrap.class.cpp \
 
 OBJ	=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
