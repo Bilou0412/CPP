@@ -5,12 +5,27 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
   _hitPoints = 100;
   _energyPoints = 100;
   _attackDammage = 30;
-  std::cout << _name << " is Fargalive " << std::endl;
+  std::cout << "Constructor FragTrap" << std::endl;
+}
+FragTrap::FragTrap(const FragTrap &copy)
+{
+  std::cout << "Copy Constructor FragTrap" << std::endl;
+  *this = copy;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &src)
+{
+  std::cout << "Assignment operator" << std::endl;
+  this->_attackDammage = src._attackDammage;
+  this->_energyPoints = src._energyPoints;
+  this->_hitPoints = src._hitPoints;
+  this->_name = src._name;
+  return (*this);
 }
 
 FragTrap::~FragTrap(void)
 {
-  std::cout << _name << " is Fragdead" << std::endl;
+  std::cout << "Deconstructor FragTrap" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)

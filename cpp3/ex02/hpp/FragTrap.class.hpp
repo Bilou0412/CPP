@@ -9,8 +9,17 @@
 class FragTrap : public ClapTrap
 {
 public:
+  // Constructeur
   FragTrap(const std::string &name);
+  FragTrap(const FragTrap &copy);
+
+  // Destructeur
   ~FragTrap();
+
+  // Surcharge d'operateur
+  FragTrap &operator=(const FragTrap &src);
+
+  // Fonction Publique
   void attack(const std::string &target);
   void highFivesGuys(void);
 };
