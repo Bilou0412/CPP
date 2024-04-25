@@ -2,7 +2,6 @@
 
 int main()
 {
-  std::cout << "---------------------------------------------------" << std::endl;
   FragTrap fragTrap("Michel");
 
   std::cout << fragTrap.getName() << " has " << fragTrap.getHitPoint() << "hp" << std::endl;
