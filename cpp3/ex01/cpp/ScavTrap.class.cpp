@@ -1,11 +1,25 @@
 #include "ScavTrap.class.hpp"
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
-{ 
+{
   _hitPoints = 100;
   _energyPoints = 50;
   _attackDammage = 20;
-  std::cout << _name << " is Scavalive " << std::endl;
+  std::cout << "Constructor ScavTrap" << std::endl;
+}
+ScavTrap::ScavTrap(const ScavTrap &copy)
+{
+  std::cout << "Copy Constructor ScavTrap" << std::endl;
+  *this = copy;
+}
+ScavTrap &ScavTrap::operator=(const ScavTrap &src)
+{
+  std::cout << "Assignment operator" << std::endl;
+  this->_attackDammage = src._attackDammage;
+  this->_energyPoints = src._energyPoints;
+  this->_hitPoints = src._hitPoints;
+  this->_name = src._name;
+  return(*this);
 }
 
 void ScavTrap::guardGate(void)
@@ -15,7 +29,7 @@ void ScavTrap::guardGate(void)
 
 ScavTrap::~ScavTrap(void)
 {
-  std::cout << _name << " is Scavdead" << std::endl;
+  std::cout << "Deconstructor ScavTrap" << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target)

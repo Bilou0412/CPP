@@ -1,15 +1,40 @@
 #include "ClapTrap.class.hpp"
 
+ClapTrap::ClapTrap(void)
+{
+  _hitPoints = 10;
+  _energyPoints = 10;
+  _attackDammage = 0;
+  _name = "Default";
+  std::cout << "Default constructor ClapTrap" << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string &name) : _name(name)
 {
   _hitPoints = 10;
   _energyPoints = 10;
   _attackDammage = 0;
-  std::cout << _name << " is alive" << std::endl;
+  std::cout << "Constructor ClapTrap" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &copy)
+{
+  std::cout << "Copy Constructor ClapTrap" << std::endl;
+  *this = copy;
 }
 ClapTrap::~ClapTrap(void)
 {
-  std::cout << _name << " is dead" << std::endl;
+  std::cout << "Deconstructor ClapTrap" << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &src)
+{
+  std::cout << "Assignment operator" << std::endl;
+  this->_attackDammage = src._attackDammage;
+  this->_energyPoints = src._energyPoints;
+  this->_hitPoints = src._hitPoints;
+  this->_name = src._name;
+  return (*this);
 }
 void ClapTrap::attack(const std::string &target)
 {

@@ -3,6 +3,7 @@
 int main()
 {
   FragTrap fragTrap("Michel");
+  FragTrap fouci("Zig");
 
   std::cout << fragTrap.getName() << " has " << fragTrap.getHitPoint() << "hp" << std::endl;
   fragTrap.attack("J-J");
