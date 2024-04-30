@@ -1,4 +1,4 @@
-NAME   	=	Brain
+NAME   	=	Abstract
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 

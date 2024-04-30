@@ -1,4 +1,4 @@
-NAME   	=	Brain
+NAME   	=	Polymorphisme
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 
@@ -8,13 +8,12 @@ SRC	=	cpp/main.cpp \
 			cpp/Dog.class.cpp \
 			cpp/WrongAnimal.class.cpp \
 			cpp/WrongCat.class.cpp \
-			cpp/Brain.class.cpp \
 
 OBJ	=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 
 RM	=	rm -rf
 CXX	=	c++
-FLAGS	=	-I./hpp -Wall -Wextra -Werror -std=c++98 -g
+FLAGS	=	-I./hpp -Wall -Wextra -Werror -std=c++98
 
 $(NAME):	$(OBJ)
 	$(CXX) $(FLAGS) $^ -o $@
