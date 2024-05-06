@@ -42,7 +42,7 @@ void MateriaSource::learnMateria(AMateria *m)
   {
     if (!this->save[i])
     {
-      this->save[i] = m->clone();
+      this->save[i] = m;
       break;
     }
   }
@@ -52,11 +52,7 @@ AMateria *MateriaSource::createMateria(std::string const &type)
   for (int i = 0; i <= 3; i++)
   {
     if (this->save[i] != 0 && !(type.compare(save[i]->getType())))
-    {
-     // std::cout << this->save[i]->getType() << "    " << i << "    " << std::endl;
-
       return (this->save[i]->clone());
-    }
   }
   return (0);
 }

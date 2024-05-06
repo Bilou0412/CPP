@@ -10,9 +10,9 @@ Character::Character(const Character &copy)
 {
   for (int i = 0; i <= 3; i++)
   {
-    if (this->inventory[i] != 0)
-      delete this->inventory[i];
-    this->inventory[i] = copy.inventory[i]->clone();
+    inventory[i] = 0;
+    if (copy.inventory[i])
+      this->inventory[i] = copy.inventory[i]->clone();
   }
   this->_name = copy.getName();
 }
@@ -56,13 +56,21 @@ void Character::equip(AMateria *m)
 }
 void Character::unequip(int idx)
 {
-  if (this->inventory[idx] != 0)
+  if ((idx <= 3 && idx >= 0) &&this->inventory[idx])
   {
+    // gerer les item au sol;
     this->inventory[idx] = 0;
   }
 }
 void Character::use(int idx, ICharacter &target)
 {
-  if (this->inventory[idx] != 0)
+  if ((idx <= 3 && idx >= 0) && this->inventory[idx])
+  {
     this->inventory[idx]->use(target);
+  }
+}
+
+AMateria *Character::getMateriaFromInventory(int idx)
+{
+  return (this->inventory)[idx];
 }
