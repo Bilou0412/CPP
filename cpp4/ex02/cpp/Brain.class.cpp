@@ -18,10 +18,14 @@ Brain::~Brain(void) {}
 
 std::string Brain::getIdea(int index) const
 {
+  if (index < 0 || index >= 100)
+    return ("");
   return (this->_ideas[index]);
 }
 
 void Brain::setIdea(const std::string &ideas, int index)
 {
+  if (index < 0 || index >= 100)
+    return;
   this->_ideas[index] = ideas;
 }

@@ -24,15 +24,15 @@ int main()
             animals[i] = new Cat();
     }
 
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 200; i++)
         static_cast<Dog *>(animals[0])->getBrain()->setIdea("something", i);
     std::cout << "1st Dog after filling" << std::endl;
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 200; i++)
         std::cout << (static_cast<Dog *>(animals[0])->getBrain()->getIdea(i)) << " ";
     std::cout << std::endl;
     *static_cast<Dog *>(animals[1]) = *static_cast<Dog *>(animals[0]);
     std::cout << "2nd Dog after copy" << std::endl;
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 200; i++)
         std::cout << (static_cast<Dog *>(animals[1])->getBrain()->getIdea(i)) << " ";
     std::cout << std::endl;
 
