@@ -1,11 +1,6 @@
 #ifndef ICHARACTER_CLASS_HPP
 #define ICHARACTER_CLASS_HPP
-#include <iostream>
-#include "AMateria.class.hpp"
-#include "Cure.class.hpp"
-#include "Ice.class.hpp"
-#include "Character.class.hpp"
-#include "IMateriaSource.class.hpp"
+
 
 class ICharacter
 {

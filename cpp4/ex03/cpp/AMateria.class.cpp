@@ -1,4 +1,4 @@
-#include "AMateria.class.hpp"
+#include "include.hpp"
 
 AMateria::AMateria(void) : _type("NoType") {}
 
@@ -21,3 +21,8 @@ std::string const &AMateria::getType() const
 {
   return (_type);
 };
+
+void AMateria::use(ICharacter &target)
+{
+  std::cout << "abstract amtateria use on" << target.getName() << std::endl;
+}

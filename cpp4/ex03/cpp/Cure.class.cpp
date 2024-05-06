@@ -1,6 +1,4 @@
-#include "Cure.class.hpp"
-
-Cure::Cure(){};
+#include"include.hpp"
 
 Cure::Cure(void) : AMateria("cure"){};
 
@@ -15,9 +13,11 @@ std::string const &Cure::getType() const
 {
   return (_type);
 };
+
 Cure &Cure::operator=(const Cure &src)
 {
   _type = src._type;
+  return (*this);
 }
 
 void Cure::use(ICharacter &target)

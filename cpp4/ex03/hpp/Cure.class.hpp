@@ -1,13 +1,7 @@
 #ifndef CURE_CLASS_HPP
 #define CURE_CLASS_HPP
-#include <iostream>
-#include "AMateria.class.hpp"
-#include "Ice.class.hpp"
-#include "ICharacter.class.hpp"
-#include "Character.class.hpp"
-#include "IMateriaSource.class.hpp"
 
-
+#include "include.hpp"
 
 class Cure : public AMateria
 {

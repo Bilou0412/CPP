@@ -1,6 +1,4 @@
-#include "Ice.class.hpp"
-
-Ice::Ice(){};
+#include "include.hpp"
 
 Ice::Ice(void) : AMateria("ice"){};
 
@@ -9,7 +7,7 @@ Ice::Ice(const Ice &copy)
   *this = copy;
 };
 
-Ice::~Ice(){};
+Ice::~Ice() {};
 
 std::string const &Ice::getType() const
 {
@@ -29,6 +27,6 @@ void Ice::use(ICharacter &target)
 
 AMateria *Ice::clone() const
 {
-  AMateria *clone = new Ice();
+  AMateria *clone = new Ice;
   return (clone);
 }

@@ -1,10 +1,6 @@
 #ifndef CHARACTER_CLASS_HPP
 #define CHARACTER_CLASS_HPP
-#include "AMateria.class.hpp"
-#include "Ice.class.hpp"
-#include "ICharacter.class.hpp"
-#include "Cure.class.hpp"
-#include "IMateriaSource.class.hpp"
+
 
 class Character : public ICharacter
 {
@@ -30,7 +26,7 @@ public:
 
 private:
   std::string _name;
-  AMateria *inventory[4];
+  AMateria *(inventory[4]);
 };
 
 #endif

@@ -1,21 +1,27 @@
-#include "Character.class.hpp"
+#include "include.hpp"
 
 Character::Character(std::string name) : _name(name)
 {
   for (int i = 0; i <= 3; i++)
-    inventory[i] = NULL;
+    inventory[i] = 0;
 }
 
 Character::Character(const Character &copy)
 {
-  *this = copy;
+  for (int i = 0; i <= 3; i++)
+  {
+    if (this->inventory[i] != 0)
+      delete this->inventory[i];
+    this->inventory[i] = copy.inventory[i]->clone();
+  }
+  this->_name = copy.getName();
 }
 
 Character::~Character()
 {
   for (int i = 0; i <= 3; i++)
   {
-    if (this->inventory[i] != NULL)
+    if (this->inventory[i] != 0)
       delete this->inventory[i];
   }
 }
@@ -29,7 +35,7 @@ Character &Character::operator=(const Character &src)
 {
   for (int i = 0; i <= 3; i++)
   {
-    if (this->inventory[i] != NULL)
+    if (this->inventory[i] != 0)
       delete this->inventory[i];
     this->inventory[i] = src.inventory[i]->clone();
   }
@@ -41,20 +47,22 @@ void Character::equip(AMateria *m)
 {
   for (int i = 0; i <= 3; i++)
   {
-    if (inventory[i] == NULL)
-      inventory[i] = m;
+    if (this->inventory[i] == 0)
+    {
+      this->inventory[i] = m;
+      break;
+    }
   }
 }
 void Character::unequip(int idx)
 {
-  if (inventory[idx] != NULL)
+  if (this->inventory[idx] != 0)
   {
-    delete inventory[idx];
-    inventory[idx] == NULL;
+    this->inventory[idx] = 0;
   }
 }
 void Character::use(int idx, ICharacter &target)
 {
-  if (inventory[idx] != NULL)
-    inventory[idx]->use(target);
+  if (this->inventory[idx] != 0)
+    this->inventory[idx]->use(target);
 }

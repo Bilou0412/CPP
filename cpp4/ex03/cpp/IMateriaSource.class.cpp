@@ -1,3 +1,1 @@
-#include "IMateriaSource.class.hpp"
-
-IMateriaSource::~IMateriaSource(){};
+#include"include.hpp"

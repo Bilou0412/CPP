@@ -1,11 +1,8 @@
 #ifndef AMATERIA_CLASS_HPP
 #define AMATERIA_CLASS_HPP
-#include "Cure.class.hpp"
-#include "Ice.class.hpp"
-#include "ICharacter.class.hpp"
-#include "Character.class.hpp"
-#include "IMateriaSource.class.hpp"
-#include <iostream>
+
+#include "include.hpp"
+class ICharacter;
 
 class AMateria
 {
@@ -16,7 +13,7 @@ public:
   AMateria(const AMateria &copy);
 
   // Destructeur
-  ~AMateria(void);
+  virtual ~AMateria(void);
 
   // Getter
   std::string const &getType() const;

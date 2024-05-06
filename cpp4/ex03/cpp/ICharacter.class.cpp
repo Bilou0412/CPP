@@ -1,3 +1,2 @@
-#include "ICharacter.class.hpp"
+#include"include.hpp"
 
-ICharacter::~ICharacter(){};

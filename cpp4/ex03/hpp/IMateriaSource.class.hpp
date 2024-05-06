@@ -1,12 +1,6 @@
 #ifndef IMATERIASOURCE
 #define IMATERIASOURCE
-#include <iostream>
-#include "AMateria.class.hpp"
-#include "Cure.class.hpp"
-#include "Ice.class.hpp"
-#include "Character.class.hpp"
-#include "ICharacter.class.hpp"
-#include "MateriaSource.class.hpp"
+
 
 
 

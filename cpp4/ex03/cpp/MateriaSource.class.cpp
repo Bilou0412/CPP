@@ -1,21 +1,26 @@
-#include "MateriaSource.class.hpp"
+#include "include.hpp"
 
 MateriaSource::MateriaSource()
 {
   for (int i = 0; i <= 3; i++)
-    save[i] = NULL;
+    this->save[i] = 0;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &copy)
 {
-  *this = copy;
+  for (int i = 0; i <= 3; i++)
+  {
+    if (this->save[i] != 0)
+      delete this->save[i];
+    this->save[i] = copy.save[i]->clone();
+  }
 }
 
 MateriaSource::~MateriaSource()
 {
   for (int i = 0; i <= 3; i++)
   {
-    if (this->save[i] != NULL)
+    if (this->save[i] != 0)
       delete this->save[i];
   }
 }
@@ -24,7 +29,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src)
 {
   for (int i = 0; i <= 3; i++)
   {
-    if (this->save[i] != NULL)
+    if (this->save[i] != 0)
       delete this->save[i];
     this->save[i] = src.save[i]->clone();
   }
@@ -35,16 +40,23 @@ void MateriaSource::learnMateria(AMateria *m)
 {
   for (int i = 0; i <= 3; i++)
   {
-    if (save[i] == NULL)
-      save[i] = m;
+    if (!this->save[i])
+    {
+      this->save[i] = m->clone();
+      break;
+    }
   }
 }
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
   for (int i = 0; i <= 3; i++)
   {
-    if (save[i] != NULL && !(type.compare(save[i]->getType())))
-      return (save[i]);
-    return (0);
+    if (this->save[i] != 0 && !(type.compare(save[i]->getType())))
+    {
+     // std::cout << this->save[i]->getType() << "    " << i << "    " << std::endl;
+
+      return (this->save[i]->clone());
+    }
   }
+  return (0);
 }

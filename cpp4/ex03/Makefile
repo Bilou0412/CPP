@@ -6,7 +6,7 @@ SRC	=	cpp/main.cpp \
 			cpp/AMateria.class.cpp \
 			cpp/Character.class.cpp \
 			cpp/Cure.class.cpp \
-			cpp/Ice.class.class.cpp \
+			cpp/Ice.class.cpp \
 			cpp/ICharacter.class.cpp \
 			cpp/IMateriaSource.class.cpp \
 			cpp/MateriaSource.class.cpp \

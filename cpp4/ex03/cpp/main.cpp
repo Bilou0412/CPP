@@ -1,8 +1,4 @@
-#include "AMateria.class.hpp"
-#include "Cure.class.hpp"
-#include "Ice.class.hpp"
-#include "ICharacter.class.hpp"
-#include "Character.class.hpp"
+#include "include.hpp"
 
 int main()
 {
