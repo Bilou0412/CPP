@@ -23,7 +23,7 @@ int main()
     }
 
     for (int i = 0; i < 100; i++)
-        static_cast<Dog *>(animals[0])->getBrain()->setIdea("something", i);
+        static_cast<Dog *>(animals[0])->getBrain()->setIdea("something dog", i);
     std::cout << "1st Dog after filling" << std::endl;
     for (int i = 0; i < 100; i++)
         std::cout << (static_cast<Dog *>(animals[0])->getBrain()->getIdea(i)) << " ";
@@ -32,6 +32,18 @@ int main()
     std::cout << "2nd Dog after copy" << std::endl;
     for (int i = 0; i < 100; i++)
         std::cout << (static_cast<Dog *>(animals[1])->getBrain()->getIdea(i)) << " ";
+    std::cout << std::endl;
+
+     for (int i = 0; i < 100; i++)
+        static_cast<Cat *>(animals[5])->getBrain()->setIdea("something cat", i);
+    std::cout << "1st Cat after filling" << std::endl;
+    for (int i = 0; i < 100; i++)
+        std::cout << (static_cast<Cat *>(animals[5])->getBrain()->getIdea(i)) << " ";
+    std::cout << std::endl;
+    *static_cast<Cat *>(animals[6]) = *static_cast<Cat *>(animals[5]);
+    std::cout << "2nd Cat after copy" << std::endl;
+    for (int i = 0; i < 100; i++)
+        std::cout << (static_cast<Cat *>(animals[6])->getBrain()->getIdea(i)) << " ";
     std::cout << std::endl;
 
     for (int i = 0; i < 10; i++)

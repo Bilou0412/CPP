@@ -35,9 +35,13 @@ Character &Character::operator=(const Character &src)
 {
   for (int i = 0; i <= 3; i++)
   {
+    std::cout << "copie character i = " << i << std::endl;
     if (this->inventory[i] != 0)
       delete this->inventory[i];
-    this->inventory[i] = src.inventory[i]->clone();
+    if (src.inventory[i])
+      this->inventory[i] = src.inventory[i]->clone();
+    else
+      this->inventory[i] = 0;
   }
   this->_name = src.getName();
   return (*this);
@@ -56,9 +60,8 @@ void Character::equip(AMateria *m)
 }
 void Character::unequip(int idx)
 {
-  if ((idx <= 3 && idx >= 0) &&this->inventory[idx])
+  if ((idx <= 3 && idx >= 0) && this->inventory[idx])
   {
-    // gerer les item au sol;
     this->inventory[idx] = 0;
   }
 }

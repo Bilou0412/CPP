@@ -19,12 +19,6 @@ Cat::Cat(const Cat &copy)
 Cat &Cat::operator=(const Cat &src)
 {
   this->_type = src._type;
-  this->brain = new Brain;
-  if (this->brain == NULL)
-  {
-    std::cerr << "Error Alloc" << std::endl;
-    exit(1);
-  }
   *this->brain = *src.brain;
   return (*this);
 }

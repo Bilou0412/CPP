@@ -25,7 +25,7 @@ Dog &Dog::operator=(const Dog &src)
 
 Dog::~Dog(void)
 {
-  std::cout << "Default Cat Destructor" << std::endl;
+  std::cout << "Default Dog Destructor" << std::endl;
   delete this->brain;
 }
 
