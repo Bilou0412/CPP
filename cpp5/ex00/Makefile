@@ -1,4 +1,4 @@
-NAME   	=	Polymorphisme
+NAME   	=	Bureaucrat
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 

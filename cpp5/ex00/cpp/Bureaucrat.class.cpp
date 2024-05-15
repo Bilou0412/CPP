@@ -8,6 +8,12 @@ Bureaucrat::Bureaucrat(int grade, const std::string &name) : _name(name)
     throw GradeTooLowException();
   _grade = grade;
 }
+Bureaucrat::~Bureaucrat() {}
+
+Bureaucrat::Bureaucrat(const Bureaucrat *copy)
+{
+  *this = copy;
+}
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 {
@@ -40,6 +46,6 @@ void Bureaucrat::decrementGrade()
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &object)
 {
-  os << object.getName() << ", bureaucrat grade" << object.getGrade() << std::endl;
+  os << object.getName() << ", bureaucrat grade " << object.getGrade() << std::endl;
   return (os);
 }
