@@ -9,7 +9,7 @@ class Form
 {
 public:
   // Constructeur
-  Form(const int gradeSigned,const int gradeExecute, const std::string &name);
+  Form(const int gradeSigned, const int gradeExecute, const std::string &name);
   Form(const Form &copy);
 
   // destructeur
@@ -31,19 +31,13 @@ public:
   class GradeTooHighException : public std::exception
   {
   public:
-    virtual const char *what() const throw()
-    {
-      return ("Grade too High for the form");
-    }
+    virtual const char *what() const throw();
   };
 
   class GradeTooLowException : public std::exception
   {
   public:
-    virtual const char *what() const throw()
-    {
-      return ("Grade too Low for the form");
-    }
+    virtual const char *what() const throw();
   };
 
 private:

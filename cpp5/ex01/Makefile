@@ -1,4 +1,4 @@
-NAME   	=	Bureaucrat
+NAME   	=	Maggots
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 

@@ -28,21 +28,16 @@ public:
   int getGrade() const;
 
   // Class except
+
   class GradeTooHighException : public std::exception
   {
   public:
-    virtual const char *what() const throw()
-    {
-      return ("Grade too High");
-    }
+    virtual const char *what() const throw();
   };
   class GradeTooLowException : public std::exception
   {
   public:
-    virtual const char *what() const throw()
-    {
-      return ("Grade too Low");
-    }
+    virtual const char *what() const throw();
   };
 
 private:

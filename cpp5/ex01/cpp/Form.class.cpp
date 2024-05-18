@@ -50,3 +50,12 @@ std::ostream &operator<<(std::ostream &os, const Form &object)
     os << object.getName() << ", Signed grade " << object.getGradeSigned() << ", Execute Grade " << object.getGradeExecute() << ", is not signed " << std::endl;
   return (os);
 }
+const char *Form::GradeTooLowException::what() const throw()
+{
+  return ("Grade too Low for the form");
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+  return ("Grade too High for the form");
+}

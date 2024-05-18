@@ -63,5 +63,5 @@ int main()
   std::cout << ba << std::endl;
 
   Bureaucrat copy(ba);
-  std::cout << ba << std::endl;
+  std::cout << copy << std::endl;
 }

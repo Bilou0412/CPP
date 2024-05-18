@@ -9,7 +9,7 @@ class Bureaucrat
 public:
   // Constructeur
   Bureaucrat(int grade, const std::string &name);
-  Bureaucrat(const Bureaucrat *copy);
+  Bureaucrat(const Bureaucrat &copy);
 
   // destructeur
   ~Bureaucrat();
@@ -27,18 +27,12 @@ public:
   class GradeTooHighException : public std::exception
   {
   public:
-    virtual const char *what() const throw()
-    {
-      return ("Grade too High");
-    }
+    virtual const char *what() const throw();
   };
   class GradeTooLowException : public std::exception
   {
   public:
-    virtual const char *what() const throw()
-    {
-      return ("Grade too Low");
-    }
+    virtual const char *what() const throw();
   };
 
 private:
