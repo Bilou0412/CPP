@@ -1,4 +1,4 @@
-NAME   	=	Maggots
+NAME   	=	zignow
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 
