@@ -13,8 +13,10 @@ public:
   ~ShrubberyCreationForm();
 
   // Fonction Publique
-  ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
   void execute(Bureaucrat const &executor) const;
+
+  // Surcharge d'operateur
+  ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
 
 private:
 };

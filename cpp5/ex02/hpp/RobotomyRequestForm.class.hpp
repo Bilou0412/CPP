@@ -13,8 +13,10 @@ public:
   ~RobotomyRequestForm();
 
   // Fonction publique
-  RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
   void execute(Bureaucrat const &executor) const;
+
+  // Surcharge d'operateur
+  RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
 
 private:
 };

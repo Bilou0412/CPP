@@ -14,6 +14,8 @@ public:
 
   // Fonction publique
   void execute(Bureaucrat const &executor) const;
+
+  // Surcharge d'operateur
   PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
 
 private:

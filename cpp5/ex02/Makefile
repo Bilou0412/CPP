@@ -1,4 +1,4 @@
-NAME   	=	Maggots
+NAME   	=	Multiple_form
 SRC_DIR	=	cpp
 OBJ_DIR	=	obj
 
