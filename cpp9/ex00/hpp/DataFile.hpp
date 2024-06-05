@@ -31,7 +31,7 @@ public:
   std::multimap<std::string, double> getCsv() const;
 
 private:
-  std::string checkInput(const std::string &line);
+  std::string checkInput(const std::string &firstL);
   std::string checkValue(const std::string &date, double value);
   char wichTypeFile(const char *name);
   std::multimap<std::string, double> _data;

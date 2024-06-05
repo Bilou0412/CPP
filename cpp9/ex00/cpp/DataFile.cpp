@@ -1,14 +1,14 @@
 #include "DataFile.hpp"
 // Return the separator for getline
 
-char DataFile::wichTypeFile(const char *name)
+char DataFile::wichTypeFile(const char *firstL)
 {
-  std::string nameStr(name);
-  if (nameStr.find(".txt") != std::string::npos)
+  std::string nameStr(firstL);
+  if (nameStr.find("|") != std::string::npos)
     return ('|');
-  else if (nameStr.find(".csv") != std::string::npos)
+  else if (nameStr.find(",") != std::string::npos)
     return (',');
-  std::cerr << "Error: File extension not csv or txt" << std::endl;
+  std::cerr << "Error: File template format" << std::endl;
   return ('\0');
 }
 std::string DataFile::checkInput(const std::string &line)
@@ -38,9 +38,9 @@ std::string DataFile::checkInput(const std::string &line)
 
 std::string DataFile::checkValue(const std::string &date, double value)
 {
-  if (value < 0)
+  if (value <= 0)
     return (std::string("Error: not a positive number "));
-  else if (value > 1000)
+  else if (value >= 1000)
     return (std::string("Error: too large number "));
   return (date);
 }
@@ -49,14 +49,14 @@ DataFile::DataFile(const char *name)
   std::fstream file(name, std::ios::in);
   std::string token, date, line;
   int nbL = 0, nbC = 0;
-  char sep = wichTypeFile(name);
-  if (sep == '\0')
-    return;
+  char sep = '\0';
   if (file.is_open())
   {
     while (std::getline(file, line))
     {
-      if (nbL > 0)
+      if(!nbL)
+      sep = wichTypeFile(line.c_str());
+      if (nbL > 0 && sep == '|')
         line = checkInput(line);
       std::stringstream ss(line);
       while (std::getline(ss, token, sep))
@@ -71,12 +71,12 @@ DataFile::DataFile(const char *name)
           nbC = 0;
           struct tm tm;
           memset(&tm, 0, sizeof(struct tm));
-          if (strptime(date.c_str(), "%Y-%m-%d", &tm) == NULL)
+          if (strptime(date.c_str(), "%Y-%m-%d", &tm) == NULL && sep == '|')
           {
             if (date.find("Error") == std::string::npos)
               date = "Error: bad date ";
           }
-          if (date.find("Error") == std::string::npos)
+          if (date.find("Error") == std::string::npos && sep == '|')
             date = checkValue(date, std::strtod(token.c_str(), NULL));
           _data.insert(std::make_pair(date, std::strtod(token.c_str(), NULL)));
         }
