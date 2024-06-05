@@ -1,5 +1,4 @@
 #include "DataFile.hpp"
-// Return the separator for getline
 
 char DataFile::wichTypeFile(const char *firstL)
 {
@@ -13,7 +12,6 @@ char DataFile::wichTypeFile(const char *firstL)
 }
 std::string DataFile::checkInput(const std::string &line)
 {
-
   if (line.find('|') != std::string::npos)
   {
     std::stringstream ss(line);
@@ -25,23 +23,26 @@ std::string DataFile::checkInput(const std::string &line)
       getline(ss, dateOrValue, '|');
       if (dateOrValue.empty())
       {
-        return (std::string("Error: bad input | -1"));
+        return (std::string("Error: bad input " + line + " | -1"));
       }
       else
         return (line);
     }
   }
   if (line.empty())
-    return (std::string("Error: empty line | -1"));
-  return (std::string("Error: no pipe | -1"));
+    return (std::string());
+  return (std::string("Error: no pipe : " + line + " | -1"));
 }
 
 std::string DataFile::checkValue(const std::string &date, double value)
 {
+  std::ostringstream ssValStr;
+  ssValStr << std::setprecision(2) << std::fixed << value;
+  std::string valStr = ssValStr.str();
   if (value <= 0)
-    return (std::string("Error: not a positive number "));
+    return (std::string("Error: not a positive number : " + valStr));
   else if (value >= 1000)
-    return (std::string("Error: too large number "));
+    return (std::string("Error: too large number : " + valStr));
   return (date);
 }
 DataFile::DataFile(const char *name)
@@ -54,12 +55,12 @@ DataFile::DataFile(const char *name)
   {
     while (std::getline(file, line))
     {
-      if(!nbL)
-      sep = wichTypeFile(line.c_str());
+      if (!nbL)
+        sep = wichTypeFile(line.c_str());
       if (nbL > 0 && sep == '|')
         line = checkInput(line);
       std::stringstream ss(line);
-      while (std::getline(ss, token, sep))
+      while (!line.empty() && std::getline(ss, token, sep))
       {
         if (!nbC)
         {
@@ -74,7 +75,7 @@ DataFile::DataFile(const char *name)
           if (strptime(date.c_str(), "%Y-%m-%d", &tm) == NULL && sep == '|')
           {
             if (date.find("Error") == std::string::npos)
-              date = "Error: bad date ";
+              date = "Error: bad date : " + date;
           }
           if (date.find("Error") == std::string::npos && sep == '|')
             date = checkValue(date, std::strtod(token.c_str(), NULL));
@@ -117,4 +118,20 @@ std::ostream &operator<<(std::ostream &os, const DataFile &csv)
   for (it = data.begin(); it != data.end(); ++it)
     os << it->first << "," << std::setprecision(2) << std::fixed << it->second << std::endl;
   return (os);
+}
+
+size_t DataFile::nbLineMap() const
+{
+  return (_data.size());
+}
+
+double DataFile::valOfKey(const std::string &date) const
+{
+  std::multimap<std::string, double>::const_iterator it = _data.upper_bound(date);
+  if (it != _data.begin())
+  {
+    --it;
+    return (it->second);
+  }
+  return (-1);
 }

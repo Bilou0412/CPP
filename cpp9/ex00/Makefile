@@ -4,7 +4,7 @@ OBJ_DIR	=	obj
 
 SRC	=	cpp/main.cpp \
 			cpp/DataFile.cpp \
-
+			cpp/BitcoinExchange.cpp \
 
 OBJ	=	$(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC))
 

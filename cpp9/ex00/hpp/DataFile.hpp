@@ -30,6 +30,10 @@ public:
   // Getter
   std::multimap<std::string, double> getCsv() const;
 
+  // Public Function
+  size_t nbLineMap() const;
+  double valOfKey(const std::string &date) const;
+
 private:
   std::string checkInput(const std::string &firstL);
   std::string checkValue(const std::string &date, double value);
